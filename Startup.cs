@@ -34,7 +34,8 @@ namespace swarm_sample_app
             {
                 var osName = Environment.MachineName;
                 var version = Configuration.GetValue<string>("Version");
-                await context.Response.WriteAsync($"{osName}, {version}");
+                var message = Configuration.GetValue<string>("Message", string.Empty);
+                await context.Response.WriteAsync($"{osName}, {version}, {message}");
             });
         }
     }
